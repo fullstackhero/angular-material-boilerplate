@@ -8,7 +8,6 @@ export class ThemeService {
 
   constructor(private storage: LocalStorageService) { }
   toggleDarkMode() {
-    console.log('Hi');
     if (this.isDarkMode()) {
       document.querySelector('.mat-app-background').classList.remove('dark-theme');
       document.querySelector('.mat-app-background').classList.add('light-theme');
