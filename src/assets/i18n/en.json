@@ -1,8 +1,8 @@
 {
   "site": {
-    "title": "fluentpos",
+    "title": "fullstackhero",
     "fork": "Fork this repository!",
-    "support": "Support fluentpos"
+    "support": "Support fullstackhero"
   },
   "layouts": {
     "admin": {
@@ -30,7 +30,7 @@
   },
   "about": {
     "title": "About",
-    "subtitle": "Everything about fluentpos.",
+    "subtitle": "Everything about fullstackhero.",
     "coreTeam": "Core Team",
     "contributors": "Contributors"
   },
@@ -112,17 +112,5 @@
   "profile": {
     "title": "Profile",
     "subtitle": "Manage Profile"
-  },
-  "pos": {
-    "title": "Point Of Sales",
-    "selectCustomer": "Select a Cutomer",
-    "changeCustomer": "Change",
-    "switchToListView": "Switch to List View",
-    "toggleImage": "Toggle Image",
-    "cart": "Cart",
-    "cartEmpty": "Cart is Empty",
-    "startAddingProducts": "Start Adding Products from the Catalog Tab.",
-    "cartInvalidMessage": "Get started by selecting a new customer!",
-    "cartInvalid": "Select a Customer"
   }
 }

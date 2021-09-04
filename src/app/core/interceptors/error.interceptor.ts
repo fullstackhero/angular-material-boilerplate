@@ -40,7 +40,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             break;
           default:
             if (response.status === 0) {
-              this.toastr.error('Unable to Connect to fluentPOS Server.', response.error.exception);
+              this.toastr.error('Unable to Connect to the Server.', response.error.exception);
               break;
             }
             this.toastr.error('Something Went Wrong', response.error.exception);
