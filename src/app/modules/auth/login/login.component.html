@@ -9,19 +9,22 @@
               <h1>Sign in</h1>
               <h3>Enter your credentials here.</h3>
               <mat-form-field appearance="fill">
-                <input matInput placeholder="Email" formControlName="email" required>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex. mukesh@fullstackhero.com" formControlName="email" required>
                 <mat-error>
-                  Please provide a valid email address
+                  Email is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
               <mat-form-field appearance="fill">
+                <mat-label>Tenant</mat-label>
                 <input matInput placeholder="Tenant" formControlName="tenant" required>
                 <mat-error>
                   Please provide a valid Tenant
                 </mat-error>
               </mat-form-field>
               <mat-form-field appearance="fill">
-                <input matInput type="password" placeholder="Password" formControlName="password" required>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter your password" formControlName="password" required>
                 <mat-error>
                   Please provide a valid password
                 </mat-error>

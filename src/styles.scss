@@ -142,6 +142,22 @@ table {
     box-shadow: 0 10px 60px 0 rgba(29, 29, 31, .05)!important;
 }
 
+.dark-theme .mat-toolbar.mat-primary {
+  background: #202020;
+}
+
+.dark-theme .mat-drawer-container {
+  background-color: #1a1a1a;
+}
+
+.dark-theme .mat-card {
+  background: #202020;
+}
+
+.dark-theme .mat-app-background, .dark-theme.mat-app-background {
+  background-color: #1a1a1a;
+}
+
 .dark-theme .mat-card {
   box-shadow: 0 5px 10px 0 rgba(29, 29, 31, 0.1)!important;
 }
@@ -258,4 +274,9 @@ table {
 .mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent
 {
   color: #424242;
+}
+
+.mat-form-field
+{
+  margin-bottom:5px!important
 }
