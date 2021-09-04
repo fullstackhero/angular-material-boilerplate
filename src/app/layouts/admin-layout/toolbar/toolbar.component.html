@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="inputSideNav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a mat-button routerLink="/" aria-label="fluentpos">
+      <img class="angular-logo" src="/assets/angular-white-transparent.svg" alt="Angular Logo White">
+      <span style="font-weight:lighter;font-size: larger;" translate>site.title</span>
+    </a>
+    <span class="nav-spacer"></span>
+
+    <a mat-icon-button matTooltip="{{'site.fork'|translate}}"
+      href="https://github.com/fullstackhero/angular-material-boilerplate/" target="_blank" class="d-none d-sm-block">
+      <mat-icon class="fab fa-github"></mat-icon>
+    </a>
+
+    <a mat-icon-button (click)="toggleDarkMode()" class="d-none d-sm-block">
+      <mat-icon>{{darkModeIcon}}</mat-icon>
+    </a>
+    <mat-divider vertical style="height:50%;margin: 10px;"></mat-divider>
+
+    <a mat-raised-button color="accent" style="margin-right: 5px;" href="https://www.buymeacoffee.com/codewithmukesh"
+      target="_blank" class="d-none d-sm-block">
+      <span style="font-weight:lighter;font-size: small;" translate><span style="margin-right: 10px;"
+          class="fas fa-info"></span> site.support</span>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

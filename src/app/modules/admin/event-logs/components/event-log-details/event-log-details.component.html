@@ -1,0 +1,95 @@
+<h2 mat-dialog-title>{{formTitle}}</h2>
+<mat-dialog-content class="mat-typography" style="width: 700px;">
+  <h3><b>User Details</b></h3>
+  <div class="row">
+    <div class="col-2">
+      User Id
+    </div>
+    <div class="col-10">
+      {{data.userId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      User Email
+    </div>
+    <div class="col-10">
+      {{data.email}}
+    </div>
+  </div>
+  <h3><b>Event Details</b></h3>
+  <div class="row">
+    <div class="col-2">
+      Time Stamp
+    </div>
+    <div class="col-10">
+
+      {{data.timestamp}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Event
+    </div>
+    <div class="col-10">
+
+      {{data.messageType}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Description
+    </div>
+    <div class="col-10">
+
+      {{data.eventDescription}}
+    </div>
+  </div>
+  <div *ngIf="jsonData">
+    <div class="row">
+      <div class="col-2">
+        Data State
+      </div>
+      <div class="col-10">
+        <div *ngIf="jsonData">
+          <div class="jsonCode">
+            <pre class="pre">{{jsonData| json}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="jsonOldValues">
+    <div class="row">
+      <div class="col-2">
+        Old Values
+      </div>
+      <div class="col-10">
+        <div *ngIf="jsonOldValues">
+          <div class="jsonCode">
+            <pre class="pre">{{jsonOldValues| json}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="jsonNewValues">
+    <div class="row">
+      <div class="col-2">
+        New Values
+      </div>
+      <div class="col-10">
+        <div class="jsonCode">
+          <pre class="pre">{{jsonNewValues| json}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,117 @@
+{
+    "site": {
+        "title": "fluentpos",
+        "fork": "Сделать Fork репозитория!",
+        "support": "Поддержать fluentpos"
+    },
+    "layouts": {
+        "admin": {
+            "catalogSubhead": "Управление каталогом",
+            "brands": "Бренды",
+            "categories": "Категории",
+            "products": "Продукты",
+            "peopleSubhead": "Управление персоналом",
+            "customers": "Клиенты",
+            "about": "О проекте",
+            "appSubhead": "Приложение",
+            "roles": "Роли",
+            "users": "Пользователи",
+            "accSubhead": "Управление доступом",
+            "activityLog": "Журнал активности"
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "subtitle": "Краткий обзор вашего бизнеса."
+    },
+    "activityLogs": {
+        "title": "Журнал Активности",
+        "subtitle": "Мониторинг журналов активности пользователей."
+    },
+    "about": {
+        "title": "О проекте",
+        "subtitle": "Всё о fluentpos.",
+        "header": "Основная команда"
+    },
+    "settings": {
+        "title": "Настройки",
+        "subtitle": "Управление настройками приложения.",
+        "generalSettings": "Общие настройки",
+        "language": "Язык",
+        "english": "Английский",
+        "khmer": "Kхмерский",
+        "russian": "Русский",
+        "french": "Французский",
+        "spanish": "Испанский"
+    },
+    "userCard": {
+        "profile": "Профиль",
+        "settings": "Настройки",
+        "logout": "Выход"
+    },
+    "dialogs": {
+        "logout": {
+            "title": "Выход",
+            "message": "Вы хотите выйти из системы?",
+            "button": "Выход"
+        },
+        "delete": {
+            "title": "Подтверждение удаления",
+            "buttons": {
+                "cancel": "Отмена",
+                "confirm": "Подтвердить"
+            }
+        }
+    },
+    "components": {
+        "accessdenial": {
+            "header": "Отказ в Доступе.",
+            "text": "У вас нет разрешения на доступ к странице, которую вы ищете. Обратитесь к системному администратору.",
+            "button": "На домашнюю страницу"
+        },
+        "notFound": {
+            "header": "Страница не найдена.",
+            "text": "Страница, которую вы ищете, не найдена. Возможно, она была удалена, переименована или вообще не существует.",
+            "button": "На домашнюю страницу"
+        },
+        "serverError": {
+            "text": "Ошибка сервера работает!"
+        },
+        "table": {
+            "register": "Зарегистрировать",
+            "reload": "Перезагрузить",
+            "filter": "Фильтровать"
+        }
+    },
+    "common": {
+        "cancel": "Отмена",
+        "ok": "Ок",
+        "yes": "Да",
+        "no": "Нет"
+    },
+    "social": {
+        "blog": "Блог",
+        "site": "Персональный сайт",
+        "linkedin": "LinkedIn",
+        "github": "Github",
+        "facebook": "Facebook",
+        "habr": "Хабр",
+        "medium": "Medium",
+        "devto": "DevTo",
+        "support": "Поддержать"
+    },
+    "profile": {
+        "title": "Профиль",
+        "subtitle": "Управление профилем"
+    },
+    "pos": {
+        "title": "Точка Продаж",
+        "selectCustomer": "Выбрать Клиента",
+        "changeCustomer": "Изменить",
+        "switchToListView": "Перейти к просмотру списка",
+        "toggleImage": "Переключить отображение изображение",
+        "cart": "Корзина",
+        "cartEmpty": "Корзина пуста",
+        "startAddingProducts": "Начните добавлять товары из вкладки Каталога."
+    }
+}

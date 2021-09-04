@@ -1,0 +1,8 @@
+<div [hidden]="!products">
+  <app-table [title]="'Products'" [subtitle]="'Manage, Register, Update or Remove Products here.'"
+    [data]="products && products.data" [columns]="productColumns" (onFilter)="filter($event)"
+    (onReload)="reload()" (onCreateForm)="openForm()" (onEditForm)="openForm($event)" (onSort)="sort($event)"
+    (onDelete)="remove($event)" [totalCount]="products && products.totalCount"
+    [pageSize]="products && products.pageSize" (onPageChanged)="pageChanged($event)">
+  </app-table>
+</div>

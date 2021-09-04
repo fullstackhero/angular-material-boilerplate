@@ -1,0 +1,122 @@
+<mat-card class="module-card" style="margin-bottom: 0px!important;padding-bottom: 4px!important;">
+    <mat-card-header>
+        <mat-card-title>
+            {{ title | translate }}
+        </mat-card-title>
+        <mat-card-subtitle>{{ subtitle | translate }}</mat-card-subtitle>
+    </mat-card-header>
+    <div style="margin: 0 26px 0 16px">
+        <div class="left">
+            <a *ngIf="onCreateForm.observers.length>0" mat-raised-button color="primary" (click)="openCreateForm()">
+                <mat-icon>add</mat-icon> {{'components.table.register'|translate}} {{ title }}
+            </a>
+            <a *ngIf="onReload.observers.length>0" mat-raised-button color="accent" (click)="handleReload()">
+                <mat-icon>refresh</mat-icon> {{'components.table.reload'|translate}}
+            </a>
+        </div>
+        <div *ngIf="customActionData" class="right">
+          <a mat-raised-button color="{{customActionData.color}}" (click)="handleCustomAction()">
+            <mat-icon>{{customActionData.icon}}</mat-icon> {{ customActionData.title }}
+          </a>
+        </div>
+        <div *ngIf="onFilter.observers.length>0" class="right">
+            <mat-form-field>
+                <input matInput [(ngModel)]="searchString" name="searchString" type="text" autocomplete="off"
+                    (keyup)="handleFilter()" placeholder="{{'components.table.filter'|translate}} {{ title | translate}}" />
+            </mat-form-field>
+        </div>
+    </div>
+    <!-- Table -->
+    <table fixedLayout="true" mat-table mat-table-stripped [dataSource]="tableDataSource" matSort
+        (matSortChange)="handleSort($event)">
+        <ng-container *ngFor="let tableColumn of columns" [matColumnDef]="tableColumn.name">
+            <!-- if showable column header -->
+            <ng-container *ngIf="
+          tableColumn.isShowable || tableColumn.dataKey == 'action';
+          else notShowable
+        ">
+                <!-- if sortable column header -->
+                <ng-container *ngIf="tableColumn.isSortable; else notSortable">
+                    <th mat-header-cell *matHeaderCellDef [mat-sort-header]="tableColumn.name" [arrowPosition]="
+              tableColumn.position === 'right' ? 'before' : 'after'
+            ">
+                        {{ tableColumn.name }}
+                    </th>
+                </ng-container>
+                <!-- else not sortable -->
+                <ng-template #notSortable>
+                    <th mat-header-cell *matHeaderCellDef [class.text-right]="tableColumn.position == 'right'">
+                        {{ tableColumn.name }}
+                    </th>
+                </ng-template>
+            </ng-container>
+
+            <ng-template #notShowable>
+                <th hidden mat-header-cell *matHeaderCellDef></th>
+            </ng-template>
+
+            <!-- column data -->
+            <!-- if showable column data -->
+            <ng-container *ngIf="
+          tableColumn.isShowable || tableColumn.dataKey == 'action';
+          else notShowableData
+        ">
+                <td mat-cell *matCellDef="let element" [class.text-right]="tableColumn.position == 'right'"
+                    [ngClass]="{ 'text-right': tableColumn.dataKey === 'action' }">
+                    <ng-container *ngIf="tableColumn.isShowable && tableColumn.dataKey !== 'selected'">
+                        <span *ngIf="tableColumn.dataKey !== 'isAlert'"> {{ element | dataPropertyGetter:
+                            tableColumn.dataKey}}
+                        </span>
+                        <span *ngIf="tableColumn.dataKey === 'tax'"> ({{ element.taxMethod }})</span>
+                        <span *ngIf="tableColumn.dataKey === 'isAlert'">{{element.isAlert ? '&#10060;' : '&#9989;'}}
+                            ({{element.alertQuantity}})</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="tableColumn.dataKey === 'selected'">
+                        <!-- <mat-header-cell *matHeaderCellDef>
+                          <mat-checkbox (change)="$event ? masterToggle() : null"
+                                        [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                        [aria-label]="checkboxLabel()">
+                          </mat-checkbox>
+                        </mat-header-cell> -->
+                          <mat-checkbox (click)="$event.stopPropagation()"
+                                        (change)="element.selected = !element.selected"
+                                        [checked]="element.selected"
+                                        >
+                          </mat-checkbox>
+                    </ng-container>
+                    <ng-container *ngIf="tableColumn.dataKey === 'action'">
+                        <button *ngIf="customActionOneData" mat-raised-button matTooltip="{{customActionOneData.title}}" color="{{customActionOneData.color}}"
+                            (click)="openCustomActionOne(element)">
+                            <mat-icon>{{customActionOneData.icon}}</mat-icon>
+                        </button>
+                        <button *ngIf="onView.observers.length>0"  mat-raised-button color="primary"
+                            (click)="openViewForm(element)">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </button>
+                        <button *ngIf="onEditForm.observers.length>0" matTooltip="Edit" mat-raised-button color="accent"
+                            (click)="openEditForm(element)">
+                            <mat-icon>mode_edit</mat-icon>
+                        </button>
+                        <button *ngIf="onDelete.observers.length>0" matTooltip="Delete" mat-raised-button color="danger"
+                            (click)="openDeleteConfirmationDialog(element.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </ng-container>
+                </td>
+            </ng-container>
+
+            <ng-template #notShowableData>
+                <th hidden mat-cell *matCellDef="let element"></th>
+            </ng-template>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <!-- Pagination -->
+    <mat-paginator *ngIf="totalCount > 0" [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="onPageChange($event)" showFirstLastButtons>
+    </mat-paginator>
+</mat-card>

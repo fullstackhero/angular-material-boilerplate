@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{ formTitle }}</h2>
+<form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content class="mat-typography">
+    <input mat type="hidden" formControlName="id" />
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput autocomplete="off" placeholder="Name" formControlName="name" required />
+      <mat-error> Please provide a valid name </mat-error>
+    </mat-form-field>
+    <p></p>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput autocomplete="off" placeholder="Description" formControlName="description" />
+      <mat-error> Please provide a valid description </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial color="primary"
+      [disabled]="!roleForm.dirty || !roleForm.valid" type="submit">
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

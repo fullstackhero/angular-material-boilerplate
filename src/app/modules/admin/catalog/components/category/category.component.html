@@ -1,0 +1,8 @@
+<div [hidden]="!categories">
+  <app-table [title]="'Categories'" [subtitle]="'Manage, Register, Update or Remove Categories here.'"
+    [data]="categories && categories.data" [columns]="categoryColumns" (onFilter)="filter($event)"
+    (onReload)="reload()" (onCreateForm)="openForm()" (onEditForm)="openForm($event)" (onSort)="sort($event)"
+    (onDelete)="remove($event)" [totalCount]="categories && categories.totalCount"
+    [pageSize]="categories && categories.pageSize" (onPageChanged)="pageChanged($event)">
+  </app-table>
+</div>

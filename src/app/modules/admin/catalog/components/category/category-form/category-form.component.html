@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{formTitle}}</h2>
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content class="mat-typography">
+    <input mat type="hidden" formControlName="id">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput autocomplete="off" placeholder="Name" formControlName="name" required>
+      <mat-error>
+        Please provide a valid name
+      </mat-error>
+    </mat-form-field>
+    <p></p>
+    <mat-form-field>
+      <mat-label>Detail</mat-label>
+      <input matInput autocomplete="off" placeholder="Detail" formControlName="detail">
+      <mat-error>
+        Please provide a valid detail
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial color="primary"
+      [disabled]="!categoryForm.dirty || !categoryForm.valid" type="submit">Save</button>
+  </mat-dialog-actions>
+</form>

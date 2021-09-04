@@ -1,0 +1,24 @@
+<mat-card class="module-card">
+    <mat-card-header>
+        <mat-card-title translate>settings.title</mat-card-title>
+        <mat-card-subtitle translate>settings.subtitle</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <h4 translate>settings.generalSettings</h4>
+            <div class="col-sm-3">
+                <mat-form-field appearance="fill">
+                    <mat-label translate>settings.language</mat-label>
+                    <mat-select [(value)]="selected" (selectionChange)=changeLanguage()>
+                        <mat-option value="en"><span translate>settings.english</span></mat-option>
+                        <mat-option value="km"><span translate>settings.khmer</span></mat-option>
+                        <mat-option value="ru"><span translate>settings.russian</span></mat-option>
+                        <mat-option value="fr"><span translate>settings.french</span></mat-option>
+                        <mat-option value="es"><span translate>settings.spanish</span></mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>

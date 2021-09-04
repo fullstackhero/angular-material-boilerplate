@@ -1,0 +1,45 @@
+{
+    "site": {
+        "title": "fluentpos"
+    },
+    "dashboard": {
+        "title": "tableau de bord",
+        "subtitle": "Aperçu rapide de votre entreprise."
+    },
+    "settings": {
+        "title": "Paramètres",
+        "subtitle": "Gérer les paramètres de l’application.",
+        "generalSettings": "Paramètres généraux",
+        "language": "Langue",
+        "english": "Anglais",
+        "khmer": "Khmer",
+        "russian": "Russe",
+        "french": "Français",
+        "spanish": "Espagnol"
+    },
+    "userCard": {
+        "profile": "profil",
+        "settings": "réglage",
+        "logout": "Logout"
+    },
+    "dialogs": {
+        "logout": {
+            "title": "Logout",
+            "message": "Voulez-vous vous déconnecter ?",
+            "button": "Logout"
+        }
+    },
+    "components": {
+        "notFound": {
+            "header": "Page not found.",
+            "text": "The page you were looking for could not be found.It might have been removed,renamed or did not exist in the first place.",
+            "button": "Go Home"
+        }
+    },
+    "common": {
+        "cancel": "Annuler",
+        "ok": "D'accord",
+        "yes": "oui",
+        "no": "Non,"
+    }
+}

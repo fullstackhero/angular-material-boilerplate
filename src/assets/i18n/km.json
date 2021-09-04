@@ -1,0 +1,45 @@
+{
+    "site": {
+        "title": "ប្រព័ន្ធគ្រប់គ្រង់អាជីវកម្ម"
+    },
+    "dashboard": {
+        "title": "ផ្ទាំងទិន្នន័យ",
+        "subtitle": "បង្ហាញសង្ខេបអាជីវកម្មរបស់អ្នក"
+    },
+    "settings": {
+        "title": "ការកំណត់",
+        "subtitle": "ការកំណត់កម្មវិធី",
+        "generalSettings": "ការកំណត់ទូទៅ",
+        "language": "ភាសា",
+        "english": "អង់គ្លេស",
+        "khmer": "ខ្មែរ",
+        "russian": "រុស្សី",
+        "french": "បារាំង",
+        "spanish": "អេស្បាញ"
+    },
+    "userCard": {
+        "profile": "ព័ត៌មានផ្ទាល់ខ្លួន",
+        "settings": "ការកំណត់",
+        "logout": "ចាកចេញ"
+    },
+    "dialogs": {
+        "logout": {
+            "title": "ចាកចេញ",
+            "message": "តើអ្នកចង់ចាកចេញពីប្រព័ន្ធមែនឬទេ?",
+            "button": "ចាកចេញ"
+        }
+    },
+    "components": {
+        "notFound": {
+            "header": "Page not found.",
+            "text": "The page you were looking for could not be found.It might have been removed,renamed or did not exist in the first place.",
+            "button": "Go Home"
+        }
+    },
+    "common": {
+        "cancel": "បោះបង់",
+        "ok": "អូខេ",
+        "yes": "បាទ​ ចាស",
+        "no": "ទេ"
+    }
+}

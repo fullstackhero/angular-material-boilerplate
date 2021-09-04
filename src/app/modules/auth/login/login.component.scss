@@ -1,0 +1,47 @@
+mat-card {
+  margin: 5em auto;
+  text-align: center;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.mat-card-login
+{
+  max-width: 500px!important;
+  padding: 0px!important;
+}
+
+@media (max-width:720px) {
+  .mat-card-login
+  {
+    max-width: 400px!important;
+  }
+}
+
+.mat-card-content-login
+{
+padding: 0px!important;
+}
+
+.login-form
+{
+  padding: 40px;
+  align-self: center;
+}
+
+.login-image
+{
+  background: url('/assets/images/full-stack-hero-logo.png') no-repeat center #ffffff;
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border: inset 130px transparent;
+  box-sizing: border-box;
+
+}

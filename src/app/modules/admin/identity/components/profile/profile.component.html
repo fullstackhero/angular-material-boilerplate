@@ -1,0 +1,109 @@
+<mat-card class="module-card">
+  <mat-card-header>
+    <mat-card-title translate>profile.title</mat-card-title>
+    <mat-card-subtitle translate>profile.subtitle</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group mat-align-tabs="end">
+      <mat-tab label="Profile Details">
+        <mat-card class="module-card" style="margin: 0px;">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4" style="text-align: center;align-self: center;">
+                <div>
+                  <mat-card class="module-card">
+                    <mat-card-content>
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                          <img style="border-radius: 350px; max-width: 200px;min-width: 200px;"
+                          [src]="url">
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6" style="text-align: center;align-self: center;">
+                          <p>Mukesh Murugan</p>
+                          <p>iammukeshm@gmail.com</p>
+                          <input #file type="file" accept="image/*" hidden (change)="onSelectFile($event)">
+                          <button (click)="file.click()" mat-raised-button color="accent">
+                            <span><span style="margin-right: 10px;" class="fas fa-upload"></span>Upload Image</span>
+                          </button>
+                        </div>
+                      </div>
+
+                    </mat-card-content>
+                  </mat-card>
+
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+                <mat-card class="module-card">
+                  <mat-card-content>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <mat-form-field appearance="outline">
+                          <mat-label>First Name</mat-label>
+                          <input matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Phone Number</mat-label>
+                          <input matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                        </mat-form-field>
+                      </div>
+                      <div class="col-6">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Second Name</mat-label>
+                          <input matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Email</mat-label>
+                          <input disabled matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                        </mat-form-field>
+                      </div>
+
+                    </div>
+                  </mat-card-content>
+                  <mat-action-row>
+
+                  </mat-action-row>
+                  <mat-card-actions style="text-align: right;padding: 16px;">
+                    <button mat-raised-button color="accent">
+                      <span><span style="margin-right: 10px;" class="fas fa-save"></span>Update Profile</span>
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Security">
+        <mat-card class="module-card" style="margin: 0px;">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Current Password</mat-label>
+                  <input matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                </mat-form-field>
+              </div>
+              <div class="col-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>New Password</mat-label>
+                  <input matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                </mat-form-field>
+              </div>
+              <div class="col-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput autocomplete="off" type="text" autocomplete="off" readonly />
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+
+</mat-card>

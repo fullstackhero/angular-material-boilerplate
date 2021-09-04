@@ -1,0 +1,8 @@
+<div [hidden]="!roles">
+  <app-table [title]="'Roles'" [subtitle]="'Manage, Register, Update or Remove Roles here.'"
+    [data]="roles && roles.data" [columns]="roleColumns" (onFilter)="filter($event)" (onReload)="reload()"
+    (onCreateForm)="openForm()" (onEditForm)="openForm($event)" (onSort)="sort($event)" (onDelete)="remove($event)"
+    [customActionOneData]="permissionActionData" (onCustomActionOne)="openPermissionsForm($event)"
+    [totalCount]="roles && roles.totalCount" [pageSize]="roles && roles.pageSize" (onPageChanged)="pageChanged($event)">
+  </app-table>
+</div>

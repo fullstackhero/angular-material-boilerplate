@@ -1,0 +1,29 @@
+.angular-logo {
+    height: 26px;
+    margin: 0 4px 3px 0;
+    vertical-align: middle;
+  }
+  .nav-spacer {
+    flex: 1 1 auto;
+  }
+  .example-header-image {
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6d257453-e35e-4846-9f98-ffb5a54aeb09/d67p1cj-2f961097-1d06-4322-a01a-7fa3e4f8d0d1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZkMjU3NDUzLWUzNWUtNDg0Ni05Zjk4LWZmYjVhNTRhZWIwOVwvZDY3cDFjai0yZjk2MTA5Ny0xZDA2LTQzMjItYTAxYS03ZmEzZTRmOGQwZDEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XdjUDwaRYj_PecGVDO9M6jlF3lYV6oCpWg1joGMIbNw');
+    background-size: cover;
+  }
+  @media screen and (max-width:906px) {
+    .hide-on-mobile {
+      visibility: hidden;
+      clear: both;
+      display: none;
+    }
+    .visible-on-mobile-only {
+      visibility: visible;
+      clear: both;
+      display: block;
+    }
+  }
+  @media screen and (max-width: 1920px) {
+    .visible-on-mobile-only  {
+      visibility:visible;
+    }
+  }

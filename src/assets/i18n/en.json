@@ -1,0 +1,128 @@
+{
+  "site": {
+    "title": "fluentpos",
+    "fork": "Fork this repository!",
+    "support": "Support fluentpos"
+  },
+  "layouts": {
+    "admin": {
+      "catalogSubhead": "Catalog Management",
+      "brands": "Brands",
+      "categories": "Categories",
+      "products": "Products",
+      "peopleSubhead": "People Management",
+      "customers": "Customers",
+      "about": "About",
+      "appSubhead": "Application",
+      "roles": "Roles",
+      "users": "Users",
+      "accSubhead": "Access Management",
+      "eventLogs": "Event Logs"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Quick Overview of your Business."
+  },
+  "eventLogs": {
+    "title": "Event Logs",
+    "subtitle": "Monitor Events Logs of Users."
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Everything about fluentpos.",
+    "coreTeam": "Core Team",
+    "contributors": "Contributors"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage Application Settings.",
+    "generalSettings": "General Settings",
+    "language": "Language",
+    "english": "English",
+    "khmer": "Khmer",
+    "russian": "Russian",
+    "french": "French",
+    "spanish": "Spanish"
+  },
+  "userCard": {
+    "profile": "Profile",
+    "settings": "Setting",
+    "logout": "Logout"
+  },
+  "dialogs": {
+    "logout": {
+      "title": "Logout",
+      "message": "Do you want to logout?",
+      "button": "Logout"
+    },
+    "checkOut": {
+      "title": "Checkout",
+      "message": "Make an Order!",
+      "button": "Confirm",
+      "buttonProcessing": "Processing..."
+    },
+    "delete": {
+      "title": "Delete Confirmation",
+      "buttons": {
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      }
+    }
+  },
+  "components": {
+    "accessDenial": {
+      "header": "Access Denial.",
+      "text": "You do not have permission to access the page you were looking for, contact to system administator.",
+      "button": "Go Home"
+    },
+    "notFound": {
+      "header": "Page not found.",
+      "text": "The page you were looking for could not be found.It might have been removed,renamed or did not exist in the first place.",
+      "button": "Go Home"
+    },
+    "serverError": {
+      "header": "Internal Server Error.",
+      "text": "There is problem with the internal server",
+      "button": "Go Home"
+    },
+    "table": {
+      "register": "Register New",
+      "reload": "Reload",
+      "filter": "Filter"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "ok": "Ok",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "social": {
+    "blog": "Blog",
+    "site": "Personal Site",
+    "linkedin": "LinkedIn",
+    "github": "Github",
+    "facebook": "Facebook",
+    "habr": "Habr",
+    "medium": "Medium",
+    "devto": "DevTo",
+    "support": "Support"
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Manage Profile"
+  },
+  "pos": {
+    "title": "Point Of Sales",
+    "selectCustomer": "Select a Cutomer",
+    "changeCustomer": "Change",
+    "switchToListView": "Switch to List View",
+    "toggleImage": "Toggle Image",
+    "cart": "Cart",
+    "cartEmpty": "Cart is Empty",
+    "startAddingProducts": "Start Adding Products from the Catalog Tab.",
+    "cartInvalidMessage": "Get started by selecting a new customer!",
+    "cartInvalid": "Select a Customer"
+  }
+}

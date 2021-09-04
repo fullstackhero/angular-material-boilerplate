@@ -1,0 +1,45 @@
+{
+    "site": {
+        "title": "fluentpos"
+    },
+    "dashboard": {
+        "title": "salpicadero",
+        "subtitle": "Visión general rápida de su negocio."
+    },
+    "settings": {
+        "title": "Configuración",
+        "subtitle": "Administrar la configuración de la aplicación.",
+        "generalSettings": "Configuración general",
+        "language": "Idioma",
+        "english": "Inglés",
+        "khmer": "Khmer",
+        "russian": "Ruso",
+        "french": "Francés",
+        "spanish": "Español"
+    },
+    "userCard": {
+        "profile": "perfil",
+        "settings": "ajuste",
+        "logout": "Cerrar sesión"
+    },
+    "dialogs": {
+        "logout": {
+            "title": "Cerrar sesión",
+            "message": "¿Desea cerrar la sesión?",
+            "button": "Cerrar sesión"
+        }
+    },
+    "components": {
+        "notFound": {
+            "header": "Page not found.",
+            "text": "The page you were looking for could not be found.It might have been removed,renamed or did not exist in the first place.",
+            "button": "Go Home"
+        }
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "ok": "De acuerdo",
+        "yes": "Sí",
+        "no": "No"
+    }
+}

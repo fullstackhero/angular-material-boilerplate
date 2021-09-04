@@ -1,0 +1,8 @@
+<div [hidden]="!customers">
+  <app-table [title]="'Customers'" [subtitle]="'Manage, Register, Update or Remove Customers here.'"
+    [data]="customers && customers.data" [columns]="customerColumns" (onFilter)="filter($event)"
+    (onReload)="reload()" (onCreateForm)="openForm()" (onEditForm)="openForm($event)" (onSort)="sort($event)"
+    (onDelete)="remove($event)" [totalCount]="customers && customers.totalCount"
+    [pageSize]="customers && customers.pageSize" (onPageChanged)="pageChanged($event)">
+  </app-table>
+</div>

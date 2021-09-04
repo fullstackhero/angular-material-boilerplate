@@ -1,1 +1,75 @@
-<p>admin-layout works!</p>
+<mat-sidenav-container class='sidenav-container'>
+  <mat-sidenav #sidenav class="sidenav" disableClose="false" mode="push">
+    <mat-nav-list style="padding-top: 0;">
+      <mat-card style="margin-bottom: 0px!important;">
+        <mat-card-header style="padding:20px!important">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title style="margin-bottom: 10px;font-size:medium">{{fullName}}</mat-card-title>
+          <mat-card-subtitle style="margin-bottom: 5px;font-size:small">{{email}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <div style="padding: 10px;">
+        <a mat-list-item routerLink="dashboard/" (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">trending_up</mat-icon> Dashboard
+        </a>
+        <div class="nav-subheading">
+          {{'layouts.admin.catalogSubhead'|translate}}</div>
+        <a *appHasPermission='["Permissions.Brands.View"]' mat-list-item routerLink="catalog/brands"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">inventory</mat-icon> {{'layouts.admin.brands'|translate}}
+        </a>
+        <a *appHasPermission='["Permissions.Categories.View"]' mat-list-item routerLink="catalog/categories"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">inventory</mat-icon> {{'layouts.admin.categories'|translate}}
+        </a>
+        <a *appHasPermission='["Permissions.Products.View"]' mat-list-item routerLink="catalog/products"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">free_breakfast</mat-icon> {{'layouts.admin.products'|translate}}
+        </a>
+        <div class="nav-subheading">
+          {{'layouts.admin.peopleSubhead'|translate}}</div>
+        <a *appHasPermission='["Permissions.Customers.View"]' mat-list-item routerLink="people/customers"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">people</mat-icon> {{'layouts.admin.customers'|translate}}
+        </a>
+        <div class="nav-subheading">
+          {{'layouts.admin.accSubhead'|translate}}</div>
+        <a *appHasPermission='["Permissions.Users.View"]' mat-list-item routerLink="identity/users"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">face</mat-icon> {{'layouts.admin.users'|translate}}
+        </a>
+        <a *appHasPermission='["Permissions.Roles.View"]' mat-list-item routerLink="identity/roles"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">badge</mat-icon> {{'layouts.admin.roles'|translate}}
+        </a>
+        <a *appHasPermission='["Permissions.Brands.View"]' mat-list-item routerLink="event-logs"
+          (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">access_time</mat-icon> {{'layouts.admin.eventLogs'|translate}}
+        </a>
+        <div class="nav-subheading">
+          {{'layouts.admin.appSubhead'|translate}}</div>
+
+        <a mat-list-item routerLink="/admin/about" (click)="sidenav.close()">
+          <mat-icon style="padding-right: 10px;">info</mat-icon> {{'layouts.admin.about'|translate}}
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <app-toolbar [inputSideNav]="sidenav"></app-toolbar>
+  <div style="height: 2px;">
+    <mat-progress-bar *ngIf="busyService.isLoading | async" mode="indeterminate" color="accent"></mat-progress-bar>
+  </div>
+  <div class="content">
+    <div class="container">
+      <mat-card *ngIf="alertIsVisible" class="module-card">
+        <mat-card-content>
+          <div class="row" style="align-items: center;">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><a mat-raised-button color="primary" href="https://opencollective.com/fluentpos#category-CONTRIBUTE" target="_blank"> Support fluentPOS.</a></div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" style="text-align: right;"> <button mat-button color="accent" (click)="hideAlert()">Hide Alert</button></div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>

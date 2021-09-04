@@ -1,0 +1,26 @@
+<div *ngIf="!rolePermission" class="d-flex justify-center p-4">
+  <mat-icon>
+    <mat-spinner diameter="20">
+    </mat-spinner>
+  </mat-icon> Loading ...
+</div>
+<div [hidden]="!rolePermission">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab *ngFor="let group of rolePermissionGroup" label="{{group}}">
+      <ng-template matTabLabel>
+        <span matBadgeColor="{{getGroupBadgeColor(getSelectedCount(groupRoleClaims[group]), groupRoleClaims[group].length)}}" matBadge="{{getSelectedCount(groupRoleClaims[group])}}/{{groupRoleClaims[group].length}}" mat matBadgeOverlap="false">{{group}}</span>
+        </ng-template>
+      <app-table [title]="'Role Permissions'" [subtitle]="'Manage Role Permission here.'"
+        [data]="groupRoleClaims[group]" [columns]="rolePermissionColumns">
+      </app-table>
+    </mat-tab>
+  </mat-tab-group>
+  <mat-dialog-actions align="end" class="mb-2">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial color="primary"
+      [disabled]="false" (click)="submitRolePermission()">
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>
+

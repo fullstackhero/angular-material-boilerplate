@@ -1,0 +1,50 @@
+
+.sidenav-container {
+  height: 100vh;
+}
+.sidenav {
+  min-width: 250px;
+  border: 0 solid rgba(0, 0, 0, 0.5);
+}
+.container
+{
+  padding: 17px!important;
+}
+.user-card
+{
+    margin: 10px;
+}
+hr {
+  border: 0;
+  height: 0.6px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+.example-header-image {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6d257453-e35e-4846-9f98-ffb5a54aeb09/d67p1cj-2f961097-1d06-4322-a01a-7fa3e4f8d0d1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZkMjU3NDUzLWUzNWUtNDg0Ni05Zjk4LWZmYjVhNTRhZWIwOVwvZDY3cDFjai0yZjk2MTA5Ny0xZDA2LTQzMjItYTAxYS03ZmEzZTRmOGQwZDEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XdjUDwaRYj_PecGVDO9M6jlF3lYV6oCpWg1joGMIbNw');
+  background-size: cover;
+}
+.mat-card-header{
+  padding:10px !important;
+}
+
+ .mat-card{
+  padding:0 !important;
+  background-color: transparent;
+}
+.mat-card-subtitle
+{
+    margin-bottom: 0 !important;
+}
+.mat-card-title{
+font-weight:normal;
+}
+.nav-subheading
+{
+  font-weight: normal;
+  padding-left: 10px;
+  margin: 0 !important;
+  margin-bottom: 10px!important;
+  margin-top: 10px!important;
+  font-size:small;
+  opacity: 50%;
+}
