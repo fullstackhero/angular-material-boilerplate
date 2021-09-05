@@ -24,5 +24,23 @@
       <span style="font-weight:lighter;font-size: small;" translate><span style="margin-right: 10px;"
           class="fas fa-info"></span> site.support</span>
     </a>
+    <button mat-raised-button color="accent" [matMenuTriggerFor]="userMenu">
+      <span><span style="margin-right: 10px;" class="fas fa-caret-down"></span>{{fullName}}</span>
+    </button>
+    <button mat-raised-button color="accent" class="d-sm-none"><span style="margin-right: 10px;"
+        class="fas fa-caret-down"> </span>More</button>
+    <mat-menu #userMenu="matMenu" style="padding-top: 0!important;">
+      <mat-card style="padding-top: 16px!important;margin-bottom: 0px!important;">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title style="margin-bottom: 10px;font-size:medium">{{fullName}}</mat-card-title>
+          <mat-card-subtitle style="margin-bottom: 5px;font-size:small">{{email}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <button mat-menu-item translate routerLink="/identity/profile">userCard.profile</button>
+      <button mat-menu-item routerLink="/settings" translate>userCard.settings</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="openLogoutDialog()" translate>userCard.logout</button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

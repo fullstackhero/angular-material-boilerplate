@@ -13,17 +13,14 @@ const routes: Routes = [
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'login',
     component: AuthLayoutComponent,
     loadChildren: () => import('./modules/auth/auth.module').then(mod => mod.AuthModule),
   },
   {
-    path: 'admin',
+    path: '',
     component: AdminLayoutComponent,
-    loadChildren: () => import('./modules/admin/admin.module').then(mod => mod.AdminModule),
-    data: {
-      allowedRoles: ['SuperAdmin']
-    }
+    loadChildren: () => import('./modules/admin/admin.module').then(mod => mod.AdminModule)
   },
   {
     path: 'access-denial', component: AccessDenialComponent

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Token } from 'src/app/core/models/identity/token';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
@@ -57,7 +57,7 @@ export class AuthService {
       return false;
     }
 
-    if(authorizationType === 'Role') {
+    if (authorizationType === 'Role') {
       const roles = decodeToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       if (roles === undefined || roles.length === 0) return false;
       return allowedData.some(a => roles.includes(a));
@@ -80,8 +80,14 @@ export class AuthService {
     return of(currentUserToken);
   }
 
-  public login(values: { email: string, password: string }): Observable<Result<Token>> {
-    return this.http.post(this.baseUrl + 'identity/tokens', values)
+  public login(values: { email: string, password: string, tenant: string }): Observable<Result<Token>> {
+    const headerDict = {
+      'tenant': values.tenant
+    }
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post(this.baseUrl + 'tokens', values, requestOptions)
       .pipe(
         tap((result: Result<Token>) => {
           if (result?.succeeded === true) {

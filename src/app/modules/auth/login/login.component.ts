@@ -19,13 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/home';
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
+    if (this.authService.isAuthenticated) {
+      this.router.navigateByUrl(this.returnUrl)
+    }
+
   }
 
   initializeForm() {
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required && Validators.email),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('123Pa$$word!', Validators.required),
       tenant: new FormControl('', Validators.required)
     });
   }
@@ -33,24 +37,9 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.isBeingLoggedIn = true;
     this.loginForm.disable()
-    // this.authService.login(this.loginForm.value)
-    //   .pipe(filter(result => result?.succeeded === true))
-    //   .subscribe(() => this.router.navigateByUrl(this.returnUrl),
-    //     error => { console.log(error); this.loginForm.enable();  }).add(()=>this.isBeingLoggedIn = false);
-    this.router.navigateByUrl("/admin")
-  }
-
-  fillSuperAdminCredentials() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('superadmin@fluentpos.com', Validators.required && Validators.email),
-      password: new FormControl('123Pa$$word!', Validators.required)
-    });
-  }
-
-  fillStaffCredentials() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('staff@fluentpos.com', Validators.required && Validators.email),
-      password: new FormControl('123Pa$$word!', Validators.required)
-    });
+    this.authService.login(this.loginForm.value)
+      .pipe(filter(result => result?.succeeded === true))
+      .subscribe(() => this.router.navigateByUrl(this.returnUrl),
+        error => { console.log(error); this.loginForm.enable(); }).add(() => this.isBeingLoggedIn = false);
   }
 }
