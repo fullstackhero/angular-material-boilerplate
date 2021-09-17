@@ -19,18 +19,18 @@
     </a>
     <mat-divider vertical style="height:50%;margin: 10px;"></mat-divider>
 
-    <a mat-raised-button color="accent" style="margin-right: 5px;" href="https://www.buymeacoffee.com/codewithmukesh"
+    <a mat-raised-button color="primary" style="margin-right: 5px;" href="https://www.buymeacoffee.com/codewithmukesh"
       target="_blank" class="d-none d-sm-block">
       <span style="font-weight:lighter;font-size: small;" translate><span style="margin-right: 10px;"
           class="fas fa-info"></span> site.support</span>
     </a>
-    <button mat-raised-button color="accent" [matMenuTriggerFor]="userMenu">
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="userMenu">
       <span><span style="margin-right: 10px;" class="fas fa-caret-down"></span>{{fullName}}</span>
     </button>
-    <button mat-raised-button color="accent" class="d-sm-none"><span style="margin-right: 10px;"
+    <button mat-raised-button color="primary" class="d-sm-none"><span style="margin-right: 10px;"
         class="fas fa-caret-down"> </span>More</button>
     <mat-menu #userMenu="matMenu" style="padding-top: 0!important;">
-      <mat-card style="padding-top: 16px!important;margin-bottom: 0px!important;">
+      <mat-card style="padding-top: 16px!important;margin-bottom: 0px!important;border-radius: 0px !important;">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title style="margin-bottom: 10px;font-size:medium">{{fullName}}</mat-card-title>

@@ -80,9 +80,9 @@ export class AuthService {
     return of(currentUserToken);
   }
 
-  public login(values: { email: string, password: string, tenant: string }): Observable<Result<Token>> {
+  public login(values: { email: string, password: string, tenantKey: string }): Observable<Result<Token>> {
     const headerDict = {
-      'tenant': values.tenant
+      'tenantKey': values.tenantKey
     }
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
