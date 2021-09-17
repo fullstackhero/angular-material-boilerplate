@@ -19,6 +19,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    canActivate: [AuthGuard],
     component: AdminLayoutComponent,
     loadChildren: () => import('./modules/admin/admin.module').then(mod => mod.AdminModule)
   },
