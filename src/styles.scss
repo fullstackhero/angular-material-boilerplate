@@ -64,6 +64,10 @@ body {
     background: #424242;
 }
 
+.dark-theme .mat-flat-button.mat-primary, .dark-theme .mat-raised-button.mat-primary, .dark-theme .mat-fab.mat-primary, .dark-theme .mat-mini-fab.mat-primary {
+  background-color: #424242;
+}
+
 .dark-theme ::-webkit-scrollbar-thumb {
     background: rgb(43, 43, 43);
 }
