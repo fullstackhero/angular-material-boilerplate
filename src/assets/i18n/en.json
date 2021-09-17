@@ -1,8 +1,9 @@
 {
   "site": {
     "title": "fullstackhero",
-    "fork": "Fork this repository!",
-    "support": "Support fullstackhero"
+    "fork": "Fork this repository",
+    "support": "Support fullstackhero",
+    "toggleDarkMode" : "Toggle Dark Mode"
   },
   "layouts": {
     "admin": {
