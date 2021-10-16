@@ -6,9 +6,12 @@ import { environment } from 'src/environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Result } from '../models/wrappers/Result';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Permission } from '../models/identity/permission';
+import { RoleApiService } from '../api/identity/role-api.service';
+import { UserApiService } from '../api/identity/user-api.service';
 
 @Injectable()
 export class AuthService {
@@ -17,7 +20,10 @@ export class AuthService {
   private currentUserTokenSource = new BehaviorSubject<string>(this.getStorageToken);
   public currentUserToken$ = this.currentUserTokenSource.asObservable();
 
-  constructor(private http: HttpClient, private localStorage: LocalStorageService, private router: Router, private toastr: ToastrService) {
+  private permissions$ = new Subject<Permission[]>();
+  private permissions: Permission[] = [];
+
+  constructor(private http: HttpClient, private localStorage: LocalStorageService, private router: Router, private toastr: ToastrService, private userApi: UserApiService) {
   }
 
   public get getToken(): string {
@@ -31,6 +37,11 @@ export class AuthService {
   public get getFullName(): string {
     const decodedToken = this.getDecodedToken();
     return decodedToken?.fullName ?? '';
+  }
+
+  public get getUserId(): string {
+    const decodedToken = this.getDecodedToken();
+    return !!(decodedToken) ? decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'] : '';
   }
 
   public get getEmail(): string {
@@ -47,7 +58,7 @@ export class AuthService {
     return false;
   }
 
-  public isAuthorized(authorizationType: string, allowedData: string[]): boolean {
+  public async isAuthorized(authorizationType: string, allowedData: string[]) {
     if (allowedData == null || allowedData.length === 0) {
       return true;
     }
@@ -63,9 +74,16 @@ export class AuthService {
       return allowedData.some(a => roles.includes(a));
 
     } else if (authorizationType === 'Permission') {
-      const permissions = decodeToken['Permission'];
-      if (permissions === undefined || permissions.length === 0) return false;
-      return allowedData.some(a => permissions.includes(a));
+      var permissionClaims: string[];
+      var response = await this.userApi.getPermissions(this.getUserId);
+      console.log(response);
+      if (response.succeeded) {
+        this.permissions = response.data;
+        if (this.permissions === undefined || this.permissions.length === 0) return false;
+        permissionClaims = this.permissions.map(function (a) { return a.claimValue; });
+        return allowedData.some(r => permissionClaims.includes(r));
+      }
+
     }
   }
 

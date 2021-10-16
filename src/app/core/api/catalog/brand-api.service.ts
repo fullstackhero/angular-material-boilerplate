@@ -1,18 +1,19 @@
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Brand } from 'src/app/modules/admin/catalog/models/brand';
-import {environment} from 'src/environments/environment';
+import { BrandParams } from 'src/app/modules/admin/catalog/models/brandParams';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class BrandApiService {
 
-  baseUrl = environment.apiUrl + 'catalog/brands/';
+  baseUrl = environment.apiUrl + 'v1/brands/';
 
   constructor(private http: HttpClient) {
   }
 
-  getAlls(params: HttpParams) {
-    return this.http.get(this.baseUrl, {params: params});
+  getAlls(params: BrandParams) {
+    return this.http.post(this.baseUrl + 'all', params);
   }
 
   getById(id: string) {

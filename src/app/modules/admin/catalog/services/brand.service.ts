@@ -10,20 +10,11 @@ import { BrandParams } from '../models/brandParams';
 
 @Injectable()
 export class BrandService {
-  constructor(private api: BrandApiService) {}
+  constructor(private api: BrandApiService) { }
 
   getBrands(brandParams: BrandParams): Observable<PaginatedResult<Brand>> {
-    let params = new HttpParams();
-    if (brandParams.searchString)
-      params = params.append('searchString', brandParams.searchString);
-    if (brandParams.pageNumber)
-      params = params.append('pageNumber', brandParams.pageNumber.toString());
-    if (brandParams.pageSize)
-      params = params.append('pageSize', brandParams.pageSize.toString());
-    if (brandParams.orderBy)
-      params = params.append('orderBy', brandParams.orderBy.toString());
     return this.api
-      .getAlls(params)
+      .getAlls(brandParams)
       .pipe(map((response: PaginatedResult<Brand>) => response));
   }
 

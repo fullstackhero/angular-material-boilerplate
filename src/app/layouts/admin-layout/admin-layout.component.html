@@ -18,40 +18,6 @@
           (click)="sidenav.close()">
           <mat-icon style="padding-right: 10px;">inventory</mat-icon> {{'layouts.admin.brands'|translate}}
         </a>
-        <a *appHasPermission='["Permissions.Categories.View"]' mat-list-item routerLink="catalog/categories"
-          (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">inventory</mat-icon> {{'layouts.admin.categories'|translate}}
-        </a>
-        <a *appHasPermission='["Permissions.Products.View"]' mat-list-item routerLink="catalog/products"
-          (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">free_breakfast</mat-icon> {{'layouts.admin.products'|translate}}
-        </a>
-        <div class="nav-subheading">
-          {{'layouts.admin.peopleSubhead'|translate}}</div>
-        <a *appHasPermission='["Permissions.Customers.View"]' mat-list-item routerLink="people/customers"
-          (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">people</mat-icon> {{'layouts.admin.customers'|translate}}
-        </a>
-        <div class="nav-subheading">
-          {{'layouts.admin.accSubhead'|translate}}</div>
-        <a *appHasPermission='["Permissions.Users.View"]' mat-list-item routerLink="identity/users"
-          (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">face</mat-icon> {{'layouts.admin.users'|translate}}
-        </a>
-        <a *appHasPermission='["Permissions.Roles.View"]' mat-list-item routerLink="identity/roles"
-          (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">badge</mat-icon> {{'layouts.admin.roles'|translate}}
-        </a>
-        <a *appHasPermission='["Permissions.Brands.View"]' mat-list-item routerLink="event-logs"
-          (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">access_time</mat-icon> {{'layouts.admin.eventLogs'|translate}}
-        </a>
-        <div class="nav-subheading">
-          {{'layouts.admin.appSubhead'|translate}}</div>
-
-        <a mat-list-item routerLink="/about" (click)="sidenav.close()">
-          <mat-icon style="padding-right: 10px;">info</mat-icon> {{'layouts.admin.about'|translate}}
-        </a>
       </div>
     </mat-nav-list>
   </mat-sidenav>
@@ -64,8 +30,10 @@
       <mat-card *ngIf="alertIsVisible" class="module-card">
         <mat-card-content>
           <div class="row" style="align-items: center;">
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><a mat-raised-button color="primary" href="https://www.buymeacoffee.com/codewithmukesh" target="_blank"> Support fullstackhero</a></div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" style="text-align: right;"> <button mat-button color="accent" (click)="hideAlert()">Hide Alert</button></div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><a mat-raised-button color="primary"
+                href="https://www.buymeacoffee.com/codewithmukesh" target="_blank"> Support fullstackhero</a></div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" style="text-align: right;"> <button mat-button
+                color="accent" (click)="hideAlert()">Hide Alert</button></div>
           </div>
         </mat-card-content>
       </mat-card>

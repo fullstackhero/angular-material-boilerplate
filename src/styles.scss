@@ -89,6 +89,15 @@ table {
     width: 100%;
 }
 
+.dark-theme .mat-table {
+  background: #1b1f22!important;
+}
+
+.dark-theme .mat-paginator-container
+{
+  background: #1b1f22!important;
+}
+
 .mat-flat-button {
     margin: 8px 8px 8px 0!important;
     border-radius: 0px!important;

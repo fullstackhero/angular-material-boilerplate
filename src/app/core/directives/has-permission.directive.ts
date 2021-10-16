@@ -7,12 +7,12 @@ import { AuthService } from '../services/auth.service';
 export class HasPermissionDirective implements OnInit{
   @Input() appHasPermission: string[];
 
-  constructor(private viewContainerRef: ViewContainerRef, 
-    private templateRef: TemplateRef<any>, 
+  constructor(private viewContainerRef: ViewContainerRef,
+    private templateRef: TemplateRef<any>,
     private authService: AuthService) {}
 
-    ngOnInit(): void {
-      const isAuthorized = this.authService.isAuthorized('Permission', this.appHasPermission);
+    async ngOnInit() {
+      const isAuthorized = await this.authService.isAuthorized('Permission', this.appHasPermission);
       if (!isAuthorized) {
         this.viewContainerRef.clear();
       } else {
