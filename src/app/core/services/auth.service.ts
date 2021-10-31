@@ -76,11 +76,10 @@ export class AuthService {
     } else if (authorizationType === 'Permission') {
       var permissionClaims: string[];
       var response = await this.userApi.getPermissions(this.getUserId);
-      console.log(response);
       if (response.succeeded) {
         this.permissions = response.data;
         if (this.permissions === undefined || this.permissions.length === 0) return false;
-        permissionClaims = this.permissions.map(function (a) { return a.claimValue; });
+        permissionClaims = this.permissions.map(function (a) { return a.permission; });
         return allowedData.some(r => permissionClaims.includes(r));
       }
 

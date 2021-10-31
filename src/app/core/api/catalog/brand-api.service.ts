@@ -13,7 +13,7 @@ export class BrandApiService {
   }
 
   getAlls(params: BrandParams) {
-    return this.http.post(this.baseUrl + 'all', params);
+    return this.http.post(this.baseUrl + 'search', params);
   }
 
   getById(id: string) {

@@ -42,7 +42,7 @@ export class BrandComponent implements OnInit {
     this.brandColumns = [
       { name: 'Id', dataKey: 'id', isSortable: true, isShowable: true },
       { name: 'Name', dataKey: 'name', isSortable: true, isShowable: true },
-      { name: 'Detail', dataKey: 'detail', isSortable: true, isShowable: true },
+      { name: 'Description', dataKey: 'description', isSortable: true, isShowable: true },
       { name: 'Action', dataKey: 'action', position: 'right' },
     ];
   }
@@ -78,14 +78,14 @@ export class BrandComponent implements OnInit {
   }
 
   filter($event: string): void {
-    this.brandParams.searchString = $event.trim().toLocaleLowerCase();
+    this.brandParams.keyword = $event.trim().toLocaleLowerCase();
     this.brandParams.pageNumber = 0;
     this.brandParams.pageSize = 0;
     this.getBrands();
   }
 
   reload(): void {
-    this.brandParams.searchString = '';
+    this.brandParams.keyword = '';
     this.brandParams.pageNumber = 0;
     this.brandParams.pageSize = 0;
     this.getBrands();

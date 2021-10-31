@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { PermissionGuard } from 'src/app/core/guards/permission.guard';
-import {BrandComponent} from './components/brand/brand.component';
-import {CategoryComponent} from './components/category/category.component';
-import {ProductComponent} from './components/product/product.component';
+import { BrandComponent } from './components/brand/brand.component';
+import { CategoryComponent } from './components/category/category.component';
+import { ProductComponent } from './components/product/product.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
     component: BrandComponent,
     canActivate: [PermissionGuard],
     data: {
-      allowedPermissions: ['Permissions.Brands.View']
+      allowedPermissions: ['Permissions.Brands.Search']
     }
   },
   {

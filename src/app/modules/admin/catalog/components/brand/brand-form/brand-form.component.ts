@@ -23,7 +23,7 @@ export class BrandFormComponent implements OnInit {
     this.brandForm = this.fb.group({
       id: [this.data && this.data.id],
       name: [this.data && this.data.name, Validators.required],
-      detail: [this.data && this.data.detail, Validators.required]
+      description: [this.data && this.data.description, Validators.required]
     })
     if (this.brandForm.get('id').value === "" || this.brandForm.get('id').value == null) {
       this.formTitle = "Register Brand";

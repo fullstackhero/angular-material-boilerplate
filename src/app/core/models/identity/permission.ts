@@ -1,4 +1,4 @@
 export class Permission {
-  claimValue: string;
+  permission: string;
   description: string;
 }

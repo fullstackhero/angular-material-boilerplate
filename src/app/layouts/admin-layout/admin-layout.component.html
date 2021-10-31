@@ -14,7 +14,7 @@
         </a>
         <div class="nav-subheading">
           {{'layouts.admin.catalogSubhead'|translate}}</div>
-        <a *appHasPermission='["Permissions.Brands.View"]' mat-list-item routerLink="catalog/brands"
+        <a *appHasPermission='["Permissions.Brands.Search"]' mat-list-item routerLink="catalog/brands"
           (click)="sidenav.close()">
           <mat-icon style="padding-right: 10px;">inventory</mat-icon> {{'layouts.admin.brands'|translate}}
         </a>
