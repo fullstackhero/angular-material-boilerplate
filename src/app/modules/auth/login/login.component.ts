@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       email: new FormControl('admin@root.com', Validators.required && Validators.email),
       password: new FormControl('123Pa$$word!', Validators.required),
-      tenantKey: new FormControl('root', Validators.required)
+      tenant: new FormControl('root', Validators.required)
     });
   }
 

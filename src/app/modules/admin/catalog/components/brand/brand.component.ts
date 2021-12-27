@@ -57,10 +57,8 @@ export class BrandComponent implements OnInit {
     const dialogRef = this.dialog.open(BrandFormComponent, {
       data: brand,
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
+    dialogRef.afterClosed().subscribe(() => {
         this.getBrands();
-      }
     });
   }
 
@@ -79,15 +77,15 @@ export class BrandComponent implements OnInit {
 
   filter($event: string): void {
     this.brandParams.keyword = $event.trim().toLocaleLowerCase();
-    this.brandParams.pageNumber = 0;
-    this.brandParams.pageSize = 0;
+    this.brandParams.pageNumber = 1;
+    this.brandParams.pageSize = 10;
     this.getBrands();
   }
 
   reload(): void {
     this.brandParams.keyword = '';
-    this.brandParams.pageNumber = 0;
-    this.brandParams.pageSize = 0;
+    this.brandParams.pageNumber = 1;
+    this.brandParams.pageSize = 10;
     this.getBrands();
   }
 }

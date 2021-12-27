@@ -97,9 +97,9 @@ export class AuthService {
     return of(currentUserToken);
   }
 
-  public login(values: { email: string, password: string, tenantKey: string }): Observable<Result<Token>> {
+  public login(values: { email: string, password: string, tenant: string }): Observable<Result<Token>> {
     const headerDict = {
-      'tenantKey': values.tenantKey
+      'tenant': values.tenant
     }
     const requestOptions = {
       headers: new HttpHeaders(headerDict),

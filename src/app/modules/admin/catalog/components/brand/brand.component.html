@@ -1,7 +1,7 @@
 <div [hidden]="!brands">
     <app-table [title]="'Brands'" [subtitle]="'Manage, Register, Update or Remove Brands here.'"
         [data]="brands && brands.data" [columns]="brandColumns" (onFilter)="filter($event)"
-        (onReload)="reload()" (onCreateForm)="openForm()" (onEditForm)="openForm($event)" (onSort)="sort($event)"
+        (onReload)="reload()" (onCreateForm)="openForm($event)" (onEditForm)="openForm($event)" (onSort)="sort($event)"
         (onDelete)="remove($event)" [totalCount]="brands && brands.totalCount" [pageSize]="brands && brands.pageSize"
         (onPageChanged)="pageChanged($event)">
     </app-table>
