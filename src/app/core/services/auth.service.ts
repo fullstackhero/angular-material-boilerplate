@@ -1,17 +1,16 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Token } from 'src/app/core/models/identity/token';
-import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { environment } from 'src/environments/environment';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Router } from '@angular/router';
-import { Result } from '../models/wrappers/Result';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Permission } from '../models/identity/permission';
-import { RoleApiService } from '../api/identity/role-api.service';
-import { UserApiService } from '../api/identity/user-api.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {ToastrService} from 'ngx-toastr';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
+import {catchError, map, tap} from 'rxjs/operators';
+import {Token} from 'src/app/core/models/identity/token';
+import {LocalStorageService} from 'src/app/core/services/local-storage.service';
+import {environment} from 'src/environments/environment';
+import {UserApiService} from '../api/identity/user-api.service';
+import {Permission} from '../models/identity/permission';
+import {Result} from '../models/wrappers/Result';
 
 @Injectable()
 export class AuthService {
@@ -58,6 +57,10 @@ export class AuthService {
     return false;
   }
 
+  private get getStorageRefreshToken(): string {
+    return this.localStorage.getItem('refreshToken');
+  }
+
   public async isAuthorized(authorizationType: string, allowedData: string[]) {
     if (allowedData == null || allowedData.length === 0) {
       return true;
@@ -70,7 +73,9 @@ export class AuthService {
 
     if (authorizationType === 'Role') {
       const roles = decodeToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-      if (roles === undefined || roles.length === 0) return false;
+      if (roles === undefined || roles.length === 0) {
+        return false;
+      }
       return allowedData.some(a => roles.includes(a));
 
     } else if (authorizationType === 'Permission') {
@@ -78,16 +83,16 @@ export class AuthService {
       var response = await this.userApi.getPermissions(this.getUserId);
       if (response.succeeded) {
         this.permissions = response.data;
-        if (this.permissions === undefined || this.permissions.length === 0) return false;
-        permissionClaims = this.permissions.map(function (a) { return a.permission; });
+        if (this.permissions === undefined || this.permissions.length === 0) {
+          return false;
+        }
+        permissionClaims = this.permissions.map(function(a) {
+          return a.permission;
+        });
         return allowedData.some(r => permissionClaims.includes(r));
       }
 
     }
-  }
-
-  private get getStorageRefreshToken(): string {
-    return this.localStorage.getItem('refreshToken');
   }
 
   public loadCurrentUser(): Observable<string> {
@@ -97,24 +102,26 @@ export class AuthService {
     return of(currentUserToken);
   }
 
-  public login(values: { email: string, password: string, tenant: string }): Observable<Result<Token>> {
+  public login(values: { email: string, password: string, tenant: string }): Observable<Token> {
     const headerDict = {
-      'tenant': values.tenant
-    }
+      tenant: values.tenant
+    };
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
     return this.http.post(this.baseUrl + 'tokens', values, requestOptions)
-      .pipe(
-        tap((result: Result<Token>) => {
-          if (result?.succeeded === true) {
-            this.setStorageToken(result.data);
-            this.toastr.clear();
-            this.toastr.info('User Logged In');
-          }
-        }),
-        map((result: Result<Token>) => result ?? undefined)
-      );
+    .pipe(
+      tap((result: any) => {
+        this.toastr.clear();
+        if (result.hasOwnProperty('ErrorId')) {
+          this.toastr.warning(result.exception);
+        } else if (result?.hasOwnProperty('token')) {
+          this.setStorageToken(result);
+          this.toastr.info('User Logged In');
+        }
+      }),
+      map((result: Token) => result ?? undefined)
+    );
   }
 
   public logout(): void {
@@ -132,30 +139,29 @@ export class AuthService {
       'refreshToken': refreshToken,
       'token': jwtToken
     })
-      .pipe(
-        tap((result: Result<Token>) => {
-          if (result.succeeded) {
-            this.setStorageToken(result.data);
-            this.toastr.clear();
-            this.toastr.info('Refreshed Token');
-          } else {
-            this.logout();
-            this.toastr.error('Something went wrong!');
-          }
-        }),
-        catchError((error) => {
-          console.error(error);
+    .pipe(
+      tap((result: Result<Token>) => {
+        if (result.succeeded) {
+          this.setStorageToken(result.data);
+          this.toastr.clear();
+          this.toastr.info('Refreshed Token');
+        } else {
           this.logout();
-          return of(null);
-        }))
-      .subscribe();
+          this.toastr.error('Something went wrong!');
+        }
+      }),
+      catchError((error) => {
+        this.logout();
+        return of(null);
+      }))
+    .subscribe();
   }
 
-  private setToken(token: string | null) {
+  private setToken(token: string | null): void {
     this.currentUserTokenSource.next(token);
   }
 
-  private setStorageToken(data: Token | null) {
+  private setStorageToken(data: Token | null): void {
     if (data != null && data?.token?.length > 0) {
       this.localStorage.setItem('token', data.token);
       this.localStorage.setItem('refreshToken', data.refreshToken);
@@ -168,16 +174,14 @@ export class AuthService {
   }
 
   private getDecodedToken() {
-    let token = this.getStorageToken;
+    const token = this.getStorageToken;
     // if token is undefined, avoid exception
     if (!(token)) {
       return null;
     }
     const jwtService = new JwtHelperService();
-    const decodedToken = jwtService.decodeToken(token);
-    return decodedToken;
+    return jwtService.decodeToken(token);
   }
-
 
 
 }
