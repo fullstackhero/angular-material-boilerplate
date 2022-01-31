@@ -26,6 +26,7 @@ import { PermissionGuard } from './core/guards/permission.guard';
 import { RoleGuard } from './core/guards/role.guard';
 import { DatePipe } from '@angular/common';
 import { CustomerService } from './modules/admin/people/services/customer.service';
+import { NavigationModule } from './core/navigation/navigation.module';
 
 export function rootLoaderFactory(http: HttpClient)
 {
@@ -53,7 +54,7 @@ export function rootLoaderFactory(http: HttpClient)
         useFactory:rootLoaderFactory,
         deps:[HttpClient]
       }
-    })
+    }),NavigationModule
   ],
   providers: [
     AuthGuard,

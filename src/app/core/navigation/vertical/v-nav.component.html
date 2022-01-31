@@ -1,0 +1,23 @@
+<div class="vnav-wrapper">
+  <div class="vnav-content" #navigationContent>
+    <ng-container *ngFor="let item of navigation; trackBy: trackByFn">
+      <ng-container>
+        <ng-container *ngIf="item.type === 'item'">
+          <vnav-item [item]="item" [name]="name"></vnav-item>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'collapsable'">
+          <vnav-collapsable [item]="item" [name]="name" [autoCollapse]="autoCollapse"></vnav-collapsable>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'divider'">
+          <vnav-divider [item]="item" [name]="name"></vnav-divider>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'group'">
+          <vnav-group [item]="item" [name]="name" [autoCollapse]="autoCollapse"></vnav-group>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'spacer'">
+          <vnav-spacer [item]="item" [name]="name"></vnav-spacer>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

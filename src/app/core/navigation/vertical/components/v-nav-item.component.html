@@ -1,0 +1,52 @@
+<div class="vnav-item-wrapper" [class.vnav-item-has-subtitle]="!!item.subtitle" [ngClass]="item.classes?.wrapper">
+    <ng-container *ngIf="item.link && !item.externalLink  "><a class="vnav-item"
+            [ngClass]="{'vnav-item-active-forced': item.active}" [routerLink]="[item.link]"
+            [routerLinkActive]="'vnav-item-active'" [routerLinkActiveOptions]="isActiveMatchOptions">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </a> </ng-container>
+    <ng-container *ngIf="item.link   "> <a class="vnav-item"
+            [href]="item.link" [target]="item.target || '_self'">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </a> </ng-container>
+    <ng-container *ngIf="!item.link && item.function ">
+        <div class="vnav-item" [ngClass]="{'vnav-item-active-forced': item.active}" (click)="item.function(item)">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="item.link && !item.externalLink && item.function "> <a class="vnav-item"
+            [ngClass]="{'vnav-item-active-forced': item.active}" [routerLink]="[item.link]"
+            [routerLinkActive]="'vnav-item-active'" [routerLinkActiveOptions]="isActiveMatchOptions"
+            (click)="item.function(item)">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </a> </ng-container>
+    <ng-container *ngIf="item.link  && item.function "> <a class="vnav-item"
+            [href]="item.link" [target]="item.target || '_self'" (click)="item.function(item)">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </a> </ng-container>
+    <ng-container *ngIf="!item.link  ">
+        <div class="vnav-item" [ngClass]="{'vnav-item-active-forced': item.active}">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="item.disabled">
+        <div class="vnav-item vnav-item-disabled">
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </div>
+    </ng-container>
+</div>
+<ng-template #itemTemplate>
+    <ng-container *ngIf="item.icon">
+        <mat-icon class="vnav-item-icon" [ngClass]="item.classes?.icon" [svgIcon]="item.icon"></mat-icon>
+    </ng-container>
+    <div class="vnav-item-title-wrapper">
+        <div class="vnav-item-title"> <span [ngClass]="item.classes?.title"> {{item.title}} </span> </div>
+        <ng-container *ngIf="item.subtitle">
+            <div class="vnav-item-subtitle"> <span [ngClass]="item.classes?.subtitle"> {{item.subtitle}} </span> </div>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="item.badge">
+        <div class="vnav-item-badge">
+            <div class="vnav-item-badge-content" [ngClass]="item.badge.classes"> {{item.badge.title}} </div>
+        </div>
+    </ng-container>
+</ng-template>

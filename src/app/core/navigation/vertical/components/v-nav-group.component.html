@@ -1,0 +1,37 @@
+<div class="vnav-item-wrapper" [class.vnav-item-has-subtitle]="!!item.subtitle" [ngClass]="item.classes?.wrapper">
+  <div class="vnav-item">
+    <ng-container *ngIf="item.icon">
+      <mat-icon class="vnav-item-icon" [ngClass]="item.classes?.icon" [svgIcon]="item.icon"></mat-icon>
+    </ng-container>
+    <div class="vnav-item-title-wrapper">
+      <div class="vnav-item-title"><span [ngClass]="item.classes?.title"> {{item.title}} </span></div>
+      <ng-container *ngIf="item.subtitle">
+        <div class="vnav-item-subtitle"><span [ngClass]="item.classes?.subtitle"> {{item.subtitle}} </span></div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="item.badge">
+      <div class="vnav-item-badge">
+        <div class="vnav-item-badge-content" [ngClass]="item.badge.classes"> {{item.badge.title}} </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<ng-container *ngFor="let item of item.children; trackBy: trackByFn">
+  <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+    <ng-container *ngIf="item.type === 'item'">
+      <vnav-item [item]="item" [name]="name"></vnav-item>
+    </ng-container>
+    <ng-container *ngIf="item.type === 'collapsable'">
+      <vnav-collapsable [item]="item" [name]="name" [autoCollapse]="autoCollapse"></vnav-collapsable>
+    </ng-container>
+    <ng-container *ngIf="item.type === 'divider'">
+      <vnav-divider [item]="item" [name]="name"></vnav-divider>
+    </ng-container>
+    <ng-container *ngIf="item.type === 'group'">
+      <vnav-group [item]="item" [name]="name"></vnav-group>
+    </ng-container>
+    <ng-container *ngIf="item.type === 'spacer'">
+      <vnav-spacer [item]="item" [name]="name"></vnav-spacer>
+    </ng-container>
+  </ng-container>
+</ng-container>

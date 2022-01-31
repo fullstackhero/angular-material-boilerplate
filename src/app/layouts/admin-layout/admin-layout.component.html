@@ -1,5 +1,5 @@
 <mat-sidenav-container class='sidenav-container'>
-  <mat-sidenav #sidenav class="sidenav" disableClose="false" mode="push">
+  <mat-sidenav #sidenav class="sidenav" disableClose="false" mode="side" opened>
     <mat-nav-list style="padding-top: 0;">
       <mat-card style="margin-bottom: 0px!important;">
         <mat-card-header style="padding:20px!important">
@@ -20,6 +20,11 @@
         </a>
       </div>
     </mat-nav-list>
+    <vnav
+      class="dark bg-gray-900 print:hidden"
+      [navigation]="navigation"
+      [opened]="true">
+  </vnav>
   </mat-sidenav>
   <app-toolbar [inputSideNav]="sidenav"></app-toolbar>
   <div style="height: 2px;">
