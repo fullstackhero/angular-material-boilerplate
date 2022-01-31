@@ -8,18 +8,18 @@
             [href]="item.link" [target]="item.target || '_self'">
             <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
         </a> </ng-container>
-    <ng-container *ngIf="!item.link && item.function ">
+    <ng-container *ngIf="!item.link  ">
         <div class="vnav-item" [ngClass]="{'vnav-item-active-forced': item.active}" (click)="item.function(item)">
             <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
         </div>
     </ng-container>
-    <ng-container *ngIf="item.link && !item.externalLink && item.function "> <a class="vnav-item"
+    <ng-container *ngIf="item.link && !item.externalLink  "> <a class="vnav-item"
             [ngClass]="{'vnav-item-active-forced': item.active}" [routerLink]="[item.link]"
             [routerLinkActive]="'vnav-item-active'" [routerLinkActiveOptions]="isActiveMatchOptions"
             (click)="item.function(item)">
             <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
         </a> </ng-container>
-    <ng-container *ngIf="item.link  && item.function "> <a class="vnav-item"
+    <ng-container *ngIf="item.link   "> <a class="vnav-item"
             [href]="item.link" [target]="item.target || '_self'" (click)="item.function(item)">
             <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
         </a> </ng-container>

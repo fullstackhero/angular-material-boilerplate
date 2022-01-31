@@ -9,11 +9,6 @@
         <div class="vnav-item-subtitle"><span [ngClass]="item.classes?.subtitle"> {{item.subtitle}} </span></div>
       </ng-container>
     </div>
-    <ng-container *ngIf="item.badge">
-      <div class="vnav-item-badge">
-        <div class="vnav-item-badge-content" [ngClass]="item.badge.classes"> {{item.badge.title}} </div>
-      </div>
-    </ng-container>
   </div>
 </div>
 <ng-container *ngFor="let item of item.children; trackBy: trackByFn">
