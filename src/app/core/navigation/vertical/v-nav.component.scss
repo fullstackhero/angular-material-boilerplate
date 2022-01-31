@@ -88,8 +88,9 @@ vnav {
     height: 100%;
     overflow: hidden;
     z-index: 10;
-    background: inherit;
+    // background: inherit;
     box-shadow: inset -1px 0 0 #e0e0e0;
+    @apply  dark:bg-gray-800;
 
     .vnav-content {
       flex: 1 1 auto;
@@ -106,8 +107,6 @@ vnav {
       }
     }
   }
-
-
 
 
   vnav-item,
@@ -131,7 +130,7 @@ vnav {
         font-weight: 500;
         line-height: 20px;
         text-decoration: none;
-        border-radius: 6px;
+        border-radius: 4px;
 
         &.vnav-item-disabled {
           cursor: default;
@@ -275,16 +274,12 @@ vnav {
 }
 
 
-
-
-
-vnav-aside-item,
 vnav-item,
 vnav-collapsable,
 vnav-group {
   .vnav-item-wrapper {
     .vnav-item {
-      color: currentColor;
+      @apply text-black dark:text-white;
 
       .vnav-item-icon {
         @apply text-current opacity-60;
@@ -303,7 +298,6 @@ vnav-group {
   }
 }
 
-vnav-aside-item,
 vnav-item,
 vnav-collapsable {
   > .vnav-item-wrapper {
@@ -311,7 +305,7 @@ vnav-collapsable {
       &:not(.vnav-item-disabled) {
         &.vnav-item-active,
         &.vnav-item-active-forced {
-          @apply bg-gray-800 bg-opacity-5 dark:bg-white dark:bg-opacity-12;
+          @apply bg-gray-800 bg-opacity-5 dark:bg-gray-800 dark:bg-opacity-50;
 
           .vnav-item-icon {
             @apply opacity-100;
@@ -323,13 +317,14 @@ vnav-collapsable {
 
           .vnav-item-subtitle {
             @apply opacity-100;
+            
           }
         }
       }
 
       &:not(.vnav-item-active-forced):not(.vnav-item-active):not(.vnav-item-disabled) {
         &:hover {
-          @apply bg-gray-800 bg-opacity-5 dark:bg-white dark:bg-opacity-12;
+          @apply bg-gray-800 bg-opacity-5 dark:bg-gray-800 ;
 
           .vnav-item-icon {
             @apply opacity-100;
@@ -375,7 +370,7 @@ vnav-group {
     .vnav-item {
       .vnav-item-title-wrapper {
         .vnav-item-title {
-          @apply opacity-100 text-primary-600 dark:text-primary-400;
+          @apply opacity-100  text-primary-600 dark:text-primary-400;
         }
       }
     }

@@ -1,57 +1,58 @@
-@import '~@angular/material/theming';
-$mat-green: (
-  50: #3eaf7c,
-  100: #3eaf7c,
-  200: #3eaf7c,
-  300: #3eaf7c,
-  400: #3eaf7c,
-  500: #3eaf7c,
-  600: #3eaf7c,
-  700: #3eaf7c,
-  800: #3eaf7c,
-  900: #3eaf7c,
-  A100: #3eaf7c,
-  A200: #3eaf7c,
-  A400: #3eaf7c,
-  A700: #3eaf7c,
-  contrast: (
-    50: white,
-    100: white,
-    200: white,
-    300: white,
-    400: white,
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
-    A100: white,
-    A200: white,
-    A400: white,
-    A700: white,
-  )
-);
-@include mat-core();
-// Define the default theme (same as the example above).
-$app-primary: mat-palette($mat-green);
-$app-accent: mat-palette($mat-grey, A200, A100, A400);
-$app-warn: mat-palette($mat-deep-orange);
-$app-theme: mat-light-theme(( color: ( primary: $app-primary, accent: $app-accent, warn:$app-warn)));
-$custom-typography: mat-typography-config($font-family: 'Poppins');
-@include mat-core($custom-typography);
-// Include the default theme styles (color and default density)
-@include angular-material-theme($app-theme);
-// Define an alternate dark theme.
-$dark-primary: mat-palette($mat-green);
-$dark-accent: mat-palette($mat-grey, A200, A100, A400);
-$dark-warn: mat-palette($mat-deep-orange);
-$dark-theme: mat-dark-theme(( color: ( primary: $dark-primary, accent: $dark-accent, warn: $dark-warn)));
-$primary: mat-palette($mat-green, 600, 500, 900);
-.dark-theme {
-    @include angular-material-color($dark-theme);
-}
-
-.background-color-primary {
-    color: white;
-    background-color: mat-color($app-primary)!important;
-}
+//@import '~@angular/material/theming';
+//
+//$mat-green: (
+//  50: #3eaf7c,
+//  100: #3eaf7c,
+//  200: #3eaf7c,
+//  300: #3eaf7c,
+//  400: #3eaf7c,
+//  500: #3eaf7c,
+//  600: #3eaf7c,
+//  700: #3eaf7c,
+//  800: #3eaf7c,
+//  900: #3eaf7c,
+//  A100: #3eaf7c,
+//  A200: #3eaf7c,
+//  A400: #3eaf7c,
+//  A700: #3eaf7c,
+//  contrast: (
+//    50: white,
+//    100: white,
+//    200: white,
+//    300: white,
+//    400: white,
+//    500: white,
+//    600: white,
+//    700: white,
+//    800: white,
+//    900: white,
+//    A100: white,
+//    A200: white,
+//    A400: white,
+//    A700: white,
+//  )
+//);
+//@include mat-core();
+//// Define the default theme (same as the example above).
+//$app-primary: mat-palette($mat-green);
+//$app-accent: mat-palette($mat-grey, A200, A100, A400);
+//$app-warn: mat-palette($mat-deep-orange);
+//$app-theme: mat-light-theme((color: (primary: $app-primary, accent: $app-accent, warn:$app-warn)));
+//$custom-typography: mat-typography-config($font-family: 'Poppins');
+//@include mat-core($custom-typography);
+//// Include the default theme styles (color and default density)
+//@include angular-material-theme($app-theme);
+//// Define an alternate dark theme.
+//$dark-primary: mat-palette($mat-green);
+//$dark-accent: mat-palette($mat-grey, A200, A100, A400);
+//$dark-warn: mat-palette($mat-deep-orange);
+//$dark-theme: mat-dark-theme((color: (primary: $dark-primary, accent: $dark-accent, warn: $dark-warn)));
+//$primary: mat-palette($mat-green, 600, 500, 900);
+//.dark-theme {
+//  @include angular-material-color($dark-theme);
+//}
+//
+//.background-color-primary {
+//  color: white;
+//  background-color: mat-color($app-primary) !important;
+//}

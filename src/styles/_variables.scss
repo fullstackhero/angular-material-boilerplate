@@ -1,0 +1,82 @@
+// http://mcg.mbitson.com/
+:root {
+
+  --primary-50:   #e8f5ef;
+  --primary-100:  #c5e7d8;
+  --primary-200:  #9fd7be;
+  --primary-300:  #78c7a3;
+  --primary-400:  #5bbb90;
+  --primary-500:  #3eaf7c;
+  --primary-600:  #38a874;
+  --primary-700:  #309f69;
+  --primary-800:  #28965f;
+  --primary-900:  #1b864c;
+  --primary-a100: #bfffdb;
+  --primary-a200: #8cffbd;
+  --primary-a400: #59ffa0;
+  --primary-a700: #40ff92;
+
+  --accent-50: #e6effc;
+  --accent-100: #c0d7f7;
+  --accent-200: #96bdf2;
+  --accent-300: #6ba3ed;
+  --accent-400: #4c8fe9;
+  --accent-500: #2c7be5;
+  --accent-600: #2773e2;
+  --accent-700: #2168de;
+  --accent-800: #1b5eda;
+  --accent-900: #104bd3;
+  --accent-a100: #ffffff;
+  --accent-a200: #cedbff;
+  --accent-a400: #9bb5ff;
+  --accent-a700: #81a2ff;
+
+
+
+  --warn-50: #fce7eb;
+  --warn-100: #f8c3cd;
+  --warn-200: #f39bab;
+  --warn-300: #ee7389;
+  --warn-400: #ea5570;
+  --warn-500: #e63757;
+  --warn-600: #e3314f;
+  --warn-700: #df2a46;
+  --warn-800: #db233c;
+  --warn-900: #d5162c;
+  --warn-a100: #ffffff;
+  --warn-a200: #ffd3d7;
+  --warn-a400: #ffa0a8;
+  --warn-a700: #ff8691;
+
+  --contrast-50: rgba(black, 0.87);
+  --contrast-100: rgba(black, 0.87);
+  --contrast-200: rgba(black, 0.87);
+  --contrast-300: rgba(black, 0.87);
+  --contrast-400: white;
+  --contrast-500: white;
+  --contrast-600: white;
+  --contrast-700: white;
+  --contrast-800: white;
+  --contrast-900: white;
+  --contrast-a100: rgba(black, 0.87);
+  --contrast-a200: rgba(black, 0.87);
+  --contrast-a400: rgba(black, 0.87);
+  --contrast-a700: rgba(black, 0.87);
+
+  .theme-dark {
+    --primary-50: #f1eff8;
+    --primary-100: #ddd8ed;
+    --primary-200: #c7bee1;
+    --primary-300: #b0a3d5;
+    --primary-400: #9f90cc;
+    --primary-500: #8e7cc3;
+    --primary-600: #8674bd;
+    --primary-700: #7b69b5;
+    --primary-800: #715fae;
+    --primary-900: #5f4ca1;
+    --primary-a100: #fefeff;
+    --primary-a200: #d6cbff;
+    --primary-a400: #ae98ff;
+    --primary-a700: #9a7fff;
+  }
+}

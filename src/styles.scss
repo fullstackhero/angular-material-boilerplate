@@ -1,6 +1,64 @@
+@use "styles/variables";
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+@use "styles/palette";
+
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ng-material-tailwind-theming-primary: mat.define-palette(palette.$primary-pat);
+$ng-material-tailwind-theming-accent: mat.define-palette(palette.$accent-pat, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ng-material-tailwind-theming-warn: mat.define-palette(palette.$warn-pat);
+$ng-material-tailwind-typography: mat.define-typography-config(
+  $font-family: theme("fontFamily.sans")
+);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ng-material-tailwind-theming-theme: mat.define-light-theme((
+  color: (
+    primary: $ng-material-tailwind-theming-primary,
+    accent: $ng-material-tailwind-theming-accent,
+    warn: $ng-material-tailwind-theming-warn,
+  ),
+  typography: $ng-material-tailwind-typography
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ng-material-tailwind-theming-theme);
+@include mat.all-component-typographies($ng-material-tailwind-theming-theme);
+
+* {
+  @apply transition-colors duration-500;
+}
+html, body {
+  @apply h-full;
+}
+
+body {
+  @apply m-0;
+  @apply font-sans;
+}
+
 @import '~ngx-toastr/toastr';
 @import '~bootstrap/scss/bootstrap-grid';
-@import '_theme.scss';
+
 $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dist/fonts/';
 @import '~material-design-icons-iconfont/src/material-design-icons';
 .container {
