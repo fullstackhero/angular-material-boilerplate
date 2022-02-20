@@ -25,7 +25,7 @@ export class BrandApiService {
   }
 
   update(brand: Brand) {
-    return this.http.put(this.baseUrl, brand);
+    return this.http.put(this.baseUrl + brand.id, brand);
   }
 
   delete(id: string) {
