@@ -97,7 +97,8 @@ export class AuthService {
     return of(currentUserToken);
   }
 
-  public login(values: { email: string, password: string, tenant: string }): Observable<Result<Token>> {
+  public login(values: { email: string, password: string, tenant: string }): Observable<Token> {
+    console.log(values);
     const headerDict = {
       'tenant': values.tenant
     }
@@ -106,14 +107,12 @@ export class AuthService {
     };
     return this.http.post(this.baseUrl + 'tokens', values, requestOptions)
       .pipe(
-        tap((result: Result<Token>) => {
-          if (result?.succeeded === true) {
-            this.setStorageToken(result.data);
+        tap((result: Token) => {
+            this.setStorageToken(result);
             this.toastr.clear();
             this.toastr.info('User Logged In');
-          }
         }),
-        map((result: Result<Token>) => result ?? undefined)
+        map((result: Token) => result ?? undefined)
       );
   }
 
