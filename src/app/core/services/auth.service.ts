@@ -100,19 +100,19 @@ export class AuthService {
   public login(values: { email: string, password: string, tenant: string }): Observable<Token> {
     console.log(values);
     const headerDict = {
-      'tenant': values.tenant
+      'tenantKey': values.tenant
     }
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
     return this.http.post(this.baseUrl + 'tokens', values, requestOptions)
       .pipe(
-        tap((result: Token) => {
-            this.setStorageToken(result);
+        tap((result: Result<Token>) => {
+            this.setStorageToken(result.data);
             this.toastr.clear();
             this.toastr.info('User Logged In');
         }),
-        map((result: Token) => result ?? undefined)
+        map((result: Result<Token>) => result.data ?? undefined)
       );
   }
 
